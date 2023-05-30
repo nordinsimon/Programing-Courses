@@ -7,10 +7,13 @@ import { useRoute, useNavigation } from "@react-navigation/native";
 
 import { COURSES } from "../data/course-data";
 
+import { WatchedVideosCtx } from "../store/context/WatchedVideosCtx";
+
 import ContentItem from "../components/ContentItem";
 import CourseDescription from "../components/CourseDescription";
 
 const CourseDetailsScreen = () => {
+  const watchedVideosCtx = useContext(WatchedVideosCtx);
   const route = useRoute();
   const navigation = useNavigation();
 
@@ -27,9 +30,19 @@ const CourseDetailsScreen = () => {
     (moment) => moment.videoOrder === 0
   )[0].videoId;
 
+  const endedHandler = () => {
+    watchedVideosCtx.addWatchedVideo(introVideoId);
+  };
+
   return (
     <ScrollView style={styles.container}>
-      <YoutubePlayer height={219} videoId={introVideoId} />
+      <YoutubePlayer
+        height={219}
+        videoId={introVideoId}
+        onChangeState={(event) => {
+          if (event === "ended") endedHandler();
+        }}
+      />
       <View style={styles.header}>
         <Text style={styles.headerText}>{course.header}</Text>
         <View style={styles.iconBox}>

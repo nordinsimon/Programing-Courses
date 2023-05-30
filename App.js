@@ -24,8 +24,11 @@ import CourseDetailsScreen from "./screens/CourseDetailsScreen";
 import CourseVideosScreen from "./screens/CourseVideosScreen";
 import FilterScreen from "./screens/FilterScreen";
 import FavouritesScreens from "./screens/FavouritesScreens";
+import FilterdCourses from "./screens/FilterdCourses";
+import CreateNewCoureScreen from "./screens/CreateNewCoureScreen";
 
 import FilterButton from "./components/FilterButton";
+import ClearFilterButton from "./components/ClearFilterButton";
 
 import Colors from "./constants/Colors";
 
@@ -73,6 +76,10 @@ const DrawerNavigator = () => {
       }}
     >
       <Drawer.Screen name={"Coding Courses"} component={Home} />
+      <Drawer.Screen
+        name={"Create New Course"}
+        component={CreateNewCoureScreen}
+      />
       <Drawer.Screen name={"Favourites"} component={FavouritesScreens} />
     </Drawer.Navigator>
   );
@@ -89,6 +96,7 @@ export default function App() {
               screenOptions={{
                 headerStyle: { backgroundColor: Colors.background0 },
                 headerTintColor: "black",
+                headerBackTitleVisible: false,
               }}
             >
               <Stack.Screen
@@ -96,7 +104,19 @@ export default function App() {
                 component={DrawerNavigator}
                 options={{ headerShown: false }}
               />
-              <Stack.Screen name={"Filter"} component={FilterScreen} />
+              <Stack.Screen
+                name={"Category Filter"}
+                component={FilterScreen}
+                //options={{ headerShown: false }}
+              />
+              <Stack.Screen
+                name={"FilterdCourses"}
+                component={FilterdCourses}
+                options={{
+                  headerLeft: () => <ClearFilterButton />,
+                  headerRight: () => <FilterButton />,
+                }}
+              />
               <Stack.Screen
                 name={"CourseDetails"}
                 component={CourseDetailsScreen}
@@ -104,7 +124,6 @@ export default function App() {
               <Stack.Screen
                 name="CourseVideos"
                 component={CourseVideosScreen}
-                options={{ headerBackTitle: "backf" }}
               />
             </Stack.Navigator>
           </NavigationContainer>

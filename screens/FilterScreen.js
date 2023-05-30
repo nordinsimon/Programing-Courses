@@ -1,24 +1,67 @@
-import { View, Text, StyleSheet } from "react-native";
+import { useState, useEffect } from "react";
+import { View, Text, StyleSheet, Pressable } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+
+import { CATEGORIES } from "../data/course-data";
+import CategoriesBox from "../components/CategoriesBox";
 
 import Colors from "../constants/Colors";
 
 const FilterScreen = () => {
+  const navigation = useNavigation();
+  const [selectedCategories, setSelectedCategories] = useState([]);
+
+  const pressHandler = (id) => {
+    if (selectedCategories.includes(id)) {
+      setSelectedCategories((prev) => prev.filter((item) => item !== id));
+    } else {
+      setSelectedCategories((prev) => [...prev, id]);
+    }
+  };
+
+  const applyPressHandler = () => {
+    if (selectedCategories.length === 0) return;
+    navigation.navigate("FilterdCourses", { selectedCategories });
+  };
+
   return (
     <View style={styles.filter}>
-      <Text style={styles.filterText}>Filter</Text>
+      <View style={styles.categories}>
+        {CATEGORIES.map((category) => {
+          return (
+            <CategoriesBox
+              key={category.id}
+              category={category}
+              pressHandler={pressHandler}
+            />
+          );
+        })}
+      </View>
+      <Pressable style={styles.button} onPress={applyPressHandler}>
+        <Text style={styles.buttonText}>Apply</Text>
+      </Pressable>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  filter: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+  categories: {
+    padding: 10,
+    margin: 20,
+    borderRadius: 5,
   },
-  filterText: {
+  button: {
+    backgroundColor: Colors.primary250,
+    flexDirection: "row",
+    justifyContent: "center",
+    padding: 10,
+    margin: 20,
+    borderRadius: 5,
+  },
+  buttonText: {
+    color: "white",
+    fontWeight: "bold",
     fontSize: 16,
-    color: Colors.primary250,
   },
 });
 

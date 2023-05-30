@@ -3,16 +3,16 @@ import { useNavigation } from "@react-navigation/native";
 
 import Colors from "../constants/Colors";
 
-const FilterButton = () => {
+const ClearFilterButton = () => {
   const navigation = useNavigation();
   return (
     <Pressable
       style={({ pressed }) =>
         pressed ? styles.filterPressed : styles.filterPress
       }
-      onPress={() => navigation.navigate("Category Filter")}
+      onPress={() => navigation.navigate("Drawer")}
     >
-      <Text style={styles.filterText}>Filter</Text>
+      <Text style={styles.filterText}>Clear Filter</Text>
     </Pressable>
   );
 };
@@ -32,4 +32,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default FilterButton;
+export default ClearFilterButton;

@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
   },
   contentItemText: {
     fontSize: 12,
+    marginRight: 50,
   },
   icon: {
     marginRight: 10,
