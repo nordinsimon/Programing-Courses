@@ -25,8 +25,8 @@ const CourseDetailsScreen = () => {
 
   const introVideoId = course.moments.filter(
     (moment) => moment.videoOrder === 0
-  )[0].videoid;
-  console.log(introVideoId);
+  )[0].videoId;
+
   return (
     <ScrollView style={styles.container}>
       <YoutubePlayer height={219} videoId={introVideoId} />

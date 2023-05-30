@@ -34,7 +34,7 @@ export const COURSES = [
     [
       {
         videoOrder: 0,
-        videoid: "ok-plXXHlWw",
+        videoId: "ok-plXXHlWw",
         videoDescriptions: "HTML Fundamentals - Introduction",
         videoGoals: [
           "Learn about the HTML history",
@@ -44,7 +44,7 @@ export const COURSES = [
       },
       {
         videoOrder: 1,
-        videoid: "9gTw2EDkaDQ",
+        videoId: "9gTw2EDkaDQ",
         videoDescriptions:
           "This video describes HTML tags, elements, and attributes.",
         videoGoals: [
@@ -55,7 +55,7 @@ export const COURSES = [
       },
       {
         videoOrder: 2,
-        videoid: "YcApt9RgiT0",
+        videoId: "YcApt9RgiT0",
         videoDescriptions: "This video describes how to use text in HTML.",
         videoGoals: [
           "Learn how to use HTML text tags",
@@ -65,7 +65,7 @@ export const COURSES = [
       },
       {
         videoOrder: 3,
-        videoid: "CGSdK7FI9MY",
+        videoId: "CGSdK7FI9MY",
         videoDescriptions:
           "This video demonstrates how to use images and hyperlinks",
         videoGoals: [
@@ -75,7 +75,7 @@ export const COURSES = [
       },
       {
         videoOrder: 4,
-        videoid: "4I1WgJz_lmA",
+        videoId: "4I1WgJz_lmA",
         videoDescriptions:
           "This video introduces 2 elements that are new to HTML5, the audio and video elements",
         videoGoals: [
@@ -85,7 +85,7 @@ export const COURSES = [
       },
       {
         videoOrder: 5,
-        videoid: "dDn9uw7N9Xg",
+        videoId: "dDn9uw7N9Xg",
         videoDescriptions:
           "This tutorial will introduce 7 elements that are new to HTML5.",
         videoGoals: ["Learn how to use HTML5 semantic tags"],

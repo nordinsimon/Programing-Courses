@@ -1,21 +1,45 @@
+import { useLayoutEffect, useContext } from "react";
 import { useState } from "react";
-
 import { View, Text, StyleSheet, Pressable } from "react-native";
-
 import { Ionicons } from "@expo/vector-icons";
+import YoutubeIframe from "react-native-youtube-iframe";
+
+import { WatchedVideosCtx } from "../store/context/WatchedVideosCtx";
+import { COURSES } from "../data/course-data";
 
 import ContentItem from "./ContentItem";
 
 import Colors from "../constants/Colors";
 
 const MomentsBox = ({ moment }) => {
+  const watchedVideosCtx = useContext(WatchedVideosCtx);
   const [pressed, setPressed] = useState(false);
+  const [longPressed, setLongPressed] = useState(false);
+  const [videoEnded, setVideoEnded] = useState(false);
   const PressHandler = () => {
-    setPressed(!pressed);
+    if (longPressed) {
+      setLongPressed(false);
+      setPressed(false);
+    } else {
+      setPressed(!pressed);
+    }
   };
   const LongPressHandler = () => {
-    console.log("long pressed");
+    setLongPressed(!longPressed);
   };
+
+  const endedHandler = () => {
+    setVideoEnded(true);
+    setLongPressed(false);
+    setPressed(false);
+    watchedVideosCtx.addWatchedVideo(moment.videoId);
+  };
+
+  useLayoutEffect(() => {
+    if (watchedVideosCtx.ids.includes(moment.videoId)) {
+      setVideoEnded(true);
+    }
+  }, []);
 
   return (
     <Pressable
@@ -24,7 +48,13 @@ const MomentsBox = ({ moment }) => {
       onLongPress={LongPressHandler}
     >
       <View style={styles.momentHeader}>
-        <Ionicons name="ios-lock-closed-outline" size={30} color="black" />
+        <Ionicons
+          name={
+            videoEnded ? "ios-lock-open-outline" : "ios-lock-closed-outline"
+          }
+          size={30}
+          color="black"
+        />
         <Text style={styles.momentText}>{moment.videoDescriptions}</Text>
       </View>
 
@@ -32,6 +62,19 @@ const MomentsBox = ({ moment }) => {
         <View style={styles.contentBox}>
           <Text style={styles.contentBoxText}>This video shows:</Text>
           <ContentItem content={moment.videoGoals} />
+        </View>
+      ) : null}
+      {longPressed ? (
+        <View style={styles.contentBox}>
+          <YoutubeIframe
+            height={219}
+            videoId={moment.videoId}
+            play={true}
+            webViewProps={{ allowsInlineMediaPlayback: false }}
+            onChangeState={(event) => {
+              if (event === "ended") endedHandler();
+            }}
+          />
         </View>
       ) : null}
     </Pressable>

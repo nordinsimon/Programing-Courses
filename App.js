@@ -17,6 +17,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 
 import FavouritesCtxProvider from "./store/context/FavouritesCtx";
+import WatchedVideosCtxProvider from "./store/context/WatchedVideosCtx";
 
 import Home from "./screens/Home";
 import CourseDetailsScreen from "./screens/CourseDetailsScreen";
@@ -81,32 +82,34 @@ export default function App() {
   return (
     <>
       <StatusBar style="auto" />
-      <FavouritesCtxProvider>
-        <NavigationContainer theme={Theme}>
-          <Stack.Navigator
-            screenOptions={{
-              headerStyle: { backgroundColor: Colors.background0 },
-              headerTintColor: "black",
-            }}
-          >
-            <Stack.Screen
-              name={"Drawer"}
-              component={DrawerNavigator}
-              options={{ headerShown: false }}
-            />
-            <Stack.Screen name={"Filter"} component={FilterScreen} />
-            <Stack.Screen
-              name={"CourseDetails"}
-              component={CourseDetailsScreen}
-            />
-            <Stack.Screen
-              name="CourseVideos"
-              component={CourseVideosScreen}
-              options={{ headerBackTitle: "backf" }}
-            />
-          </Stack.Navigator>
-        </NavigationContainer>
-      </FavouritesCtxProvider>
+      <WatchedVideosCtxProvider>
+        <FavouritesCtxProvider>
+          <NavigationContainer theme={Theme}>
+            <Stack.Navigator
+              screenOptions={{
+                headerStyle: { backgroundColor: Colors.background0 },
+                headerTintColor: "black",
+              }}
+            >
+              <Stack.Screen
+                name={"Drawer"}
+                component={DrawerNavigator}
+                options={{ headerShown: false }}
+              />
+              <Stack.Screen name={"Filter"} component={FilterScreen} />
+              <Stack.Screen
+                name={"CourseDetails"}
+                component={CourseDetailsScreen}
+              />
+              <Stack.Screen
+                name="CourseVideos"
+                component={CourseVideosScreen}
+                options={{ headerBackTitle: "backf" }}
+              />
+            </Stack.Navigator>
+          </NavigationContainer>
+        </FavouritesCtxProvider>
+      </WatchedVideosCtxProvider>
     </>
   );
 }
