@@ -2,24 +2,25 @@ import { useContext } from "react";
 import { Text, View } from "react-native";
 
 import { FavouritesCtx } from "../store/context/FavouritesCtx";
-//import { MEALS } from "../data/dummy-data";
 
-//import MealsList from "../components/MealsList";
+import { COURSES } from "../data/course-data";
+import CourseItem from "../components/CourseItem";
 
 const FavouritesScreens = () => {
-  const favouritesMealCtx = useContext(FavouritesCtx);
-  /*   const favouritesMeals = MEALS.filter((meal) =>
-    favouritesMealCtx.ids.includes(meal.id)
-  ); */
-  const favouritesMeals = [];
-  if (favouritesMeals.length === 0 || !favouritesMeals) {
+  const favouritesCtx = useContext(FavouritesCtx);
+
+  const favouritesCourses = COURSES.filter((course) =>
+    favouritesCtx.ids.includes(course.id)
+  );
+
+  if (favouritesCourses.length === 0 || !favouritesCourses) {
     return (
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
         <Text>No favourites Courses found. Start adding some!</Text>
       </View>
     );
   } else {
-    return <MealsList meals={favouritesMeals} />;
+    return <CourseItem courses={favouritesCourses} />;
   }
 };
 

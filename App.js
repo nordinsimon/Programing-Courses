@@ -2,15 +2,7 @@ import "react-native-gesture-handler";
 import React from "react";
 import { StatusBar } from "expo-status-bar";
 
-import {
-  StyleSheet,
-  Text,
-  Dimensions,
-  Button,
-  ScrollView,
-  Pressable,
-  View,
-} from "react-native";
+import { StyleSheet, Button, ScrollView } from "react-native";
 
 import { DefaultTheme, NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";

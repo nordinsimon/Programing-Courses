@@ -1,5 +1,4 @@
 import {
-  FlatList,
   ImageBackground,
   Text,
   StyleSheet,
@@ -14,11 +13,6 @@ import CourseItem from "../components/CourseItem";
 import Colors from "../constants/Colors";
 
 const Home = () => {
-  const renderGridItem = (itemData) => {
-    const course = itemData.item;
-    return <CourseItem {...course} />;
-  };
-
   return (
     <ScrollView style={styles.scrollView}>
       <View style={styles.container}>
@@ -35,13 +29,7 @@ const Home = () => {
         </ImageBackground>
         <Text style={styles.subTitle}>What do you want to leran today?</Text>
       </View>
-      <FlatList
-        data={COURSES}
-        renderItem={renderGridItem}
-        keyExtractor={(item) => item.id}
-        numColumns={1}
-        scrollEnabled={false}
-      />
+      <CourseItem courses={COURSES} />
     </ScrollView>
   );
 };

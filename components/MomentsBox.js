@@ -5,7 +5,6 @@ import { Ionicons } from "@expo/vector-icons";
 import YoutubeIframe from "react-native-youtube-iframe";
 
 import { WatchedVideosCtx } from "../store/context/WatchedVideosCtx";
-import { COURSES } from "../data/course-data";
 
 import ContentItem from "./ContentItem";
 

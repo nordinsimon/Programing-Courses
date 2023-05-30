@@ -1,6 +1,5 @@
 import { View, Text, StyleSheet, ScrollView } from "react-native";
-import { useRoute, useNavigation } from "@react-navigation/native";
-import { Ionicons } from "@expo/vector-icons";
+import { useRoute } from "@react-navigation/native";
 
 import { COURSES } from "../data/course-data";
 
@@ -10,7 +9,6 @@ import MomentsBox from "../components/MomentsBox";
 
 const CourseVideosScreen = () => {
   const route = useRoute();
-  const navigation = useNavigation();
   const { courseId } = route.params;
   const course = COURSES.find((course) => course.id === courseId);
   const videos = course.moments.length;

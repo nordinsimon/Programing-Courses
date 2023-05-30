@@ -6,29 +6,53 @@ import {
   Image,
   StyleSheet,
   Pressable,
+  FlatList,
 } from "react-native";
+
+import LikeButton from "./LikeButton";
+
 import Colors from "../constants/Colors";
 
-const CourseItem = ({ id, title, backgroundUrl, logoUrl }) => {
-  const navigation = useNavigation();
-  const pressHandler = () => {
-    navigation.navigate("CourseDetails", { courseId: id });
+const CourseItem = ({ courses }) => {
+  const renderGridItem = (itemData) => {
+    const course = itemData.item;
+    return <CourseItemBox {...course} />;
   };
-  return (
-    <View style={styles.container}>
-      <View style={styles.overflow}>
-        <Pressable onPress={pressHandler}>
-          <ImageBackground
-            style={styles.backgroundImage}
-            source={{ uri: backgroundUrl }}
-            resizeMode="cover"
-          >
-            <Image style={styles.image} source={{ uri: logoUrl }} />
-          </ImageBackground>
-          <Text style={styles.title}>{title}</Text>
-        </Pressable>
+
+  const CourseItemBox = ({ id, title, backgroundUrl, logoUrl }) => {
+    const navigation = useNavigation();
+    const pressHandler = () => {
+      navigation.navigate("CourseDetails", { courseId: id });
+    };
+    return (
+      <View style={styles.container}>
+        <View style={styles.overflow}>
+          <Pressable onPress={pressHandler}>
+            <ImageBackground
+              style={styles.backgroundImage}
+              source={{ uri: backgroundUrl }}
+              resizeMode="cover"
+            >
+              <Image style={styles.image} source={{ uri: logoUrl }} />
+            </ImageBackground>
+            <View style={styles.buttom}>
+              <Text style={styles.title}>{title}</Text>
+              <LikeButton offset={true} id={id} />
+            </View>
+          </Pressable>
+        </View>
       </View>
-    </View>
+    );
+  };
+
+  return (
+    <FlatList
+      data={courses}
+      renderItem={renderGridItem}
+      keyExtractor={(item) => item.id}
+      numColumns={1}
+      style={styles.flatList}
+    />
   );
 };
 
@@ -56,11 +80,18 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
   },
+  buttom: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
   title: {
     margin: 10,
     color: Colors.primaryText,
     fontSize: 24,
     fontWeight: "bold",
+  },
+  flatList: {
+    marginBottom: 20,
   },
 });
 

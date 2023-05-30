@@ -1,16 +1,15 @@
 import { useLayoutEffect, useContext } from "react";
 import { View, Text, StyleSheet, ScrollView, Button } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
-import YoutubePlayer from "react-native-youtube-iframe";
-
 import { useRoute, useNavigation } from "@react-navigation/native";
-
-import { COURSES } from "../data/course-data";
+import YoutubePlayer from "react-native-youtube-iframe";
 
 import { WatchedVideosCtx } from "../store/context/WatchedVideosCtx";
 
+import { COURSES } from "../data/course-data";
+
 import ContentItem from "../components/ContentItem";
 import CourseDescription from "../components/CourseDescription";
+import LikeButton from "../components/LikeButton";
 
 const CourseDetailsScreen = () => {
   const watchedVideosCtx = useContext(WatchedVideosCtx);
@@ -45,14 +44,7 @@ const CourseDetailsScreen = () => {
       />
       <View style={styles.header}>
         <Text style={styles.headerText}>{course.header}</Text>
-        <View style={styles.iconBox}>
-          <Ionicons
-            name="ios-heart-outline"
-            size={24}
-            color="green"
-            style={styles.icon}
-          />
-        </View>
+        <LikeButton offset={false} id={course.id} />
       </View>
       <View style={styles.content}>
         <Text style={styles.contentTitle}>Course content</Text>
@@ -88,23 +80,6 @@ const styles = StyleSheet.create({
   headerText: {
     flex: 1,
     fontSize: 24,
-  },
-  iconBox: {
-    flex: 0,
-    justifyContent: "center",
-    alignItems: "center",
-    width: 40,
-    height: 40,
-    borderRadius: 25,
-    backgroundColor: "white",
-    elevation: 4,
-    shadowColor: "black",
-    shadowOffset: { width: 6, height: 6 },
-    shadowOpacity: 0.3,
-    shadowRadius: 8,
-  },
-  icon: {
-    flex: 0,
   },
   content: {
     padding: 10,
