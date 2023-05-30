@@ -3,15 +3,16 @@ import { View, Text, StyleSheet, ScrollView, Button } from "react-native";
 import { useRoute, useNavigation } from "@react-navigation/native";
 import YoutubePlayer from "react-native-youtube-iframe";
 
-import { WatchedVideosCtx } from "../store/context/WatchedVideosCtx";
-
-import { COURSES } from "../data/course-data";
+import { CoursesCtx } from "../store/CoursesCtx";
+import { WatchedVideosCtx } from "../store/WatchedVideosCtx";
 
 import ContentItem from "../components/ContentItem";
 import CourseDescription from "../components/CourseDescription";
 import LikeButton from "../components/LikeButton";
 
 const CourseDetailsScreen = () => {
+  const coursesCtx = useContext(CoursesCtx);
+  const COURSES = coursesCtx.courses;
   const watchedVideosCtx = useContext(WatchedVideosCtx);
   const route = useRoute();
   const navigation = useNavigation();

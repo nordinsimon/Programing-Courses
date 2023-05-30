@@ -2,7 +2,7 @@ import { useState } from "react";
 import { View, Text, StyleSheet, Pressable } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
-import { CATEGORIES } from "../data/course-data";
+import CATEGORIES from "../data/categories";
 import CategoriesBox from "../components/CategoriesBox";
 
 import Colors from "../constants/Colors";

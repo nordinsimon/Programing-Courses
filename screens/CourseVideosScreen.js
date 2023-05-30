@@ -1,13 +1,16 @@
+import { useContext } from "react";
 import { View, Text, StyleSheet, ScrollView } from "react-native";
 import { useRoute } from "@react-navigation/native";
 
-import { COURSES } from "../data/course-data";
+import { CoursesCtx } from "../store/CoursesCtx";
 
 import Colors from "../constants/Colors";
 
 import MomentsBox from "../components/MomentsBox";
 
 const CourseVideosScreen = () => {
+  const coursesCtx = useContext(CoursesCtx);
+  const COURSES = coursesCtx.courses;
   const route = useRoute();
   const { courseId } = route.params;
   const course = COURSES.find((course) => course.id === courseId);

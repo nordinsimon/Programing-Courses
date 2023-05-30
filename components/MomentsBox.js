@@ -4,7 +4,7 @@ import { View, Text, StyleSheet, Pressable } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import YoutubeIframe from "react-native-youtube-iframe";
 
-import { WatchedVideosCtx } from "../store/context/WatchedVideosCtx";
+import { WatchedVideosCtx } from "../store/WatchedVideosCtx";
 
 import ContentItem from "./ContentItem";
 

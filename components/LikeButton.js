@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Pressable, StyleSheet } from "react-native";
 
-import { FavouritesCtx } from "../store/context/FavouritesCtx";
+import { FavouritesCtx } from "../store/FavouritesCtx";
 
 import { Ionicons } from "@expo/vector-icons";
 

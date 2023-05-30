@@ -1,10 +1,13 @@
+import { useContext } from "react";
 import { useRoute } from "@react-navigation/native";
 
-import { COURSES } from "../data/course-data";
+import { CoursesCtx } from "../store/CoursesCtx";
 
 import CourseItem from "../components/CourseItem";
 
 const FilterdCourses = () => {
+  const coursesCtx = useContext(CoursesCtx);
+  const COURSES = coursesCtx.courses;
   const route = useRoute();
   const { selectedCategories } = route.params;
 
@@ -14,7 +17,7 @@ const FilterdCourses = () => {
     );
   });
 
-  return <CourseItem courses={filteredCourses} />;
+  return <CourseItem courses={filteredCourses} scrollEnabled={true} />;
 };
 
 export default FilterdCourses;

@@ -13,7 +13,7 @@ import LikeButton from "./LikeButton";
 
 import Colors from "../constants/Colors";
 
-const CourseItem = ({ courses }) => {
+const CourseItem = ({ courses, scrollEnabled }) => {
   const renderGridItem = (itemData) => {
     const course = itemData.item;
     return <CourseItemBox {...course} />;
@@ -52,6 +52,7 @@ const CourseItem = ({ courses }) => {
       keyExtractor={(item) => item.id}
       numColumns={1}
       style={styles.flatList}
+      scrollEnabled={scrollEnabled}
     />
   );
 };

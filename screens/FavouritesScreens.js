@@ -1,12 +1,13 @@
 import { useContext } from "react";
 import { Text, View } from "react-native";
 
-import { FavouritesCtx } from "../store/context/FavouritesCtx";
-
-import { COURSES } from "../data/course-data";
+import { CoursesCtx } from "../store/CoursesCtx";
+import { FavouritesCtx } from "../store/FavouritesCtx";
 import CourseItem from "../components/CourseItem";
 
 const FavouritesScreens = () => {
+  const coursesCtx = useContext(CoursesCtx);
+  const COURSES = coursesCtx.courses;
   const favouritesCtx = useContext(FavouritesCtx);
 
   const favouritesCourses = COURSES.filter((course) =>
@@ -20,7 +21,7 @@ const FavouritesScreens = () => {
       </View>
     );
   } else {
-    return <CourseItem courses={favouritesCourses} />;
+    return <CourseItem courses={favouritesCourses} scrollEnabled={true} />;
   }
 };
 

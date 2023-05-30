@@ -8,8 +8,9 @@ import { DefaultTheme, NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 
-import FavouritesCtxProvider from "./store/context/FavouritesCtx";
-import WatchedVideosCtxProvider from "./store/context/WatchedVideosCtx";
+import CoursesCtxProvider from "./store/CoursesCtx";
+import FavouritesCtxProvider from "./store/FavouritesCtx";
+import WatchedVideosCtxProvider from "./store/WatchedVideosCtx";
 
 import Home from "./screens/Home";
 import CourseDetailsScreen from "./screens/CourseDetailsScreen";
@@ -81,46 +82,48 @@ export default function App() {
   return (
     <>
       <StatusBar style="auto" />
-      <WatchedVideosCtxProvider>
-        <FavouritesCtxProvider>
-          <NavigationContainer theme={Theme}>
-            <Stack.Navigator
-              screenOptions={{
-                headerStyle: { backgroundColor: Colors.background0 },
-                headerTintColor: "black",
-                headerBackTitleVisible: false,
-              }}
-            >
-              <Stack.Screen
-                name={"Drawer"}
-                component={DrawerNavigator}
-                options={{ headerShown: false }}
-              />
-              <Stack.Screen
-                name={"Category Filter"}
-                component={FilterScreen}
-                //options={{ headerShown: false }}
-              />
-              <Stack.Screen
-                name={"FilterdCourses"}
-                component={FilterdCourses}
-                options={{
-                  headerLeft: () => <ClearFilterButton />,
-                  headerRight: () => <FilterButton />,
+      <CoursesCtxProvider>
+        <WatchedVideosCtxProvider>
+          <FavouritesCtxProvider>
+            <NavigationContainer theme={Theme}>
+              <Stack.Navigator
+                screenOptions={{
+                  headerStyle: { backgroundColor: Colors.background0 },
+                  headerTintColor: "black",
+                  headerBackTitleVisible: false,
                 }}
-              />
-              <Stack.Screen
-                name={"CourseDetails"}
-                component={CourseDetailsScreen}
-              />
-              <Stack.Screen
-                name="CourseVideos"
-                component={CourseVideosScreen}
-              />
-            </Stack.Navigator>
-          </NavigationContainer>
-        </FavouritesCtxProvider>
-      </WatchedVideosCtxProvider>
+              >
+                <Stack.Screen
+                  name={"Drawer"}
+                  component={DrawerNavigator}
+                  options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                  name={"Category Filter"}
+                  component={FilterScreen}
+                  //options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                  name={"FilterdCourses"}
+                  component={FilterdCourses}
+                  options={{
+                    headerLeft: () => <ClearFilterButton />,
+                    headerRight: () => <FilterButton />,
+                  }}
+                />
+                <Stack.Screen
+                  name={"CourseDetails"}
+                  component={CourseDetailsScreen}
+                />
+                <Stack.Screen
+                  name="CourseVideos"
+                  component={CourseVideosScreen}
+                />
+              </Stack.Navigator>
+            </NavigationContainer>
+          </FavouritesCtxProvider>
+        </WatchedVideosCtxProvider>
+      </CoursesCtxProvider>
     </>
   );
 }

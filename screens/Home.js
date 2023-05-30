@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import {
   ImageBackground,
   Text,
@@ -6,13 +7,15 @@ import {
   ScrollView,
 } from "react-native";
 
-import { COURSES } from "../data/course-data";
+import { CoursesCtx } from "../store/CoursesCtx";
 
 import CourseItem from "../components/CourseItem";
 
 import Colors from "../constants/Colors";
 
 const Home = () => {
+  const coursesCtx = useContext(CoursesCtx);
+  const COURSES = coursesCtx.courses;
   return (
     <ScrollView style={styles.scrollView}>
       <View style={styles.container}>
@@ -29,7 +32,7 @@ const Home = () => {
         </ImageBackground>
         <Text style={styles.subTitle}>What do you want to leran today?</Text>
       </View>
-      <CourseItem courses={COURSES} />
+      <CourseItem courses={COURSES} scrollEnabled={false} />
     </ScrollView>
   );
 };
