@@ -102,16 +102,35 @@ const defaultCourses = [
     moments: [
       {
         videoOrder: 0,
-        videoId: "ok-plXXHlWw",
-        videoDescriptions: "HTML Fundamentals - Introduction",
+        videoId: "OEV8gMkCHXQ",
+        videoDescriptions: "CSS Fundamentals - Introduction",
         videoGoals: [
-          "Learn about the HTML history",
-          "Learn how Tags work in HTML",
-          "How to create a basic HTML document",
+          "Learn about the CSS history",
+          "Learn how to use CSS to style and format web pages",
+          "Learn how to use CSS selectors to target HTML elements",
+        ],
+      },
+      {
+        videoOrder: 1,
+        videoId: "UO0ZPL8yMpU",
+        videoDescriptions: "This video describes CSS selectors.",
+        videoGoals: [
+          "Learn how to use CSS selectors to target HTML elements",
+          "Learn how to use CSS properties to modify the appearance of HTML elements",
+        ],
+      },
+      {
+        videoOrder: 2,
+        videoId: "ZuuEdXXzG7I",
+        videoDescriptions: "This video describes CSS properties.",
+        videoGoals: [
+          "Learn how to use CSS properties to modify the appearance of HTML elements",
+          "Learn how to use CSS to create layouts and responsive web pages",
         ],
       },
     ],
   },
+
   {
     id: "c701a07b-5638-4e46-929a-9b82ac283ec6",
     categoryIds: ["c3"],
@@ -136,12 +155,81 @@ const defaultCourses = [
     moments: [
       {
         videoOrder: 0,
-        videoId: "ok-plXXHlWw",
-        videoDescriptions: "HTML Fundamentals - Introduction",
+        videoId: "MK8MmMYsfZM",
+        videoDescriptions: "Introduktion, variables and alerts",
         videoGoals: [
-          "Learn about the HTML history",
-          "Learn how Tags work in HTML",
-          "How to create a basic HTML document",
+          "Learn about the JavaScript history",
+          "Learn how to use JavaScript variables",
+          "Learn how to use JavaScript alerts",
+        ],
+      },
+      {
+        videoOrder: 1,
+        videoId: "OjxkbYC5v1w",
+        videoDescriptions: "This video describes JavaScript functions.",
+        videoGoals: [
+          "Learn how to use JavaScript functions",
+          "Learn how to use JavaScript objects",
+        ],
+      },
+      {
+        videoOrder: 2,
+        videoId: "x7WJEmxNlEs",
+        videoDescriptions: "This video describes JavaScript events.",
+        videoGoals: [
+          "Learn how to use JavaScript events",
+          "Learn how to use JavaScript to manipulate the DOM",
+          "Learn how to use JavaScript to create animations and effects",
+        ],
+      },
+      {
+        videoOrder: 3,
+        videoId: "x7WJEmxNlEs",
+        videoDescriptions: "This video describes JavaScript events.",
+        videoGoals: [
+          "Learn how to use JavaScript events",
+          "Learn how to use JavaScript to manipulate the DOM",
+          "Learn how to use JavaScript to create animations and effects",
+        ],
+      },
+      {
+        videoOrder: 4,
+        videoId: "x7WJEmxNlEs",
+        videoDescriptions: "This video describes JavaScript events.",
+        videoGoals: [
+          "Learn how to use JavaScript events",
+          "Learn how to use JavaScript to manipulate the DOM",
+          "Learn how to use JavaScript to create animations and effects",
+        ],
+      },
+      {
+        videoOrder: 5,
+        videoId: "x7WJEmxNlEs",
+        videoDescriptions: "This video describes JavaScript events.",
+        videoGoals: [
+          "Learn how to use JavaScript events",
+          "Learn how to use JavaScript to manipulate the DOM",
+          "Learn how to use JavaScript to create animations and effects",
+        ],
+      },
+      {
+        videoOrder: 6,
+        videoId: "x7WJEmxNlEs",
+        videoDescriptions: "This video describes JavaScript events.",
+        videoGoals: [
+          "Learn how to use JavaScript events",
+          "Learn how to use JavaScript to manipulate the DOM",
+          "Learn how to use JavaScript to create animations and effects",
+        ],
+      },
+      {
+        videoOrder: 7,
+        videoId: "x7WJEmxNlEs",
+        videoDescriptions: "This video describes JavaScript events.",
+        videoGoals: [
+          "Learn how to use JavaScript events",
+          "Learn how to use JavaScript to manipulate the DOM",
+          "Learn how to use JavaScript to create animations and effects",
         ],
       },
     ],
@@ -170,12 +258,31 @@ const defaultCourses = [
     moments: [
       {
         videoOrder: 0,
-        videoId: "ok-plXXHlWw",
-        videoDescriptions: "HTML Fundamentals - Introduction",
+        videoId: "Tn6-PIqc4UM",
+        videoDescriptions: "React Fundamentals - Introduction",
         videoGoals: [
-          "Learn about the HTML history",
-          "Learn how Tags work in HTML",
-          "How to create a basic HTML document",
+          "Learn about the React history",
+          "Learn how to use React to create user interfaces",
+          "Learn how to use React components and state",
+        ],
+      },
+      {
+        videoOrder: 1,
+        videoId: "Tn6-PIqc4UM",
+        videoDescriptions: "This video describes React components.",
+        videoGoals: [
+          "Learn how to use React components and state",
+          "Learn how to use React to create reusable and interactive user interface components",
+        ],
+      },
+      {
+        videoOrder: 2,
+        videoId: "Tn6-PIqc4UM",
+        videoDescriptions: "This video describes React components.",
+        videoGoals: [
+          "Learn how to use React components and state",
+          "Learn how to use React to create reusable and interactive user interface components",
+          "Learn how to use React to create dynamic and interactive web applications",
         ],
       },
     ],
