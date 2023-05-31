@@ -1,6 +1,6 @@
 const defaultCourses = [
   {
-    id: "m1",
+    id: "db72c7ba-374d-44dd-946e-fa3c75bd6409",
     categoryIds: ["c1", "c2"],
     title: "HTML",
     backgroundUrl: "https://i.imgur.com/4LMd7fL.jpg",
@@ -80,7 +80,7 @@ const defaultCourses = [
     ],
   },
   {
-    id: "m2",
+    id: "86adc5df-38eb-40ad-8e89-3a019482e194",
     categoryIds: ["c2"],
     title: "CSS",
     backgroundUrl:
@@ -113,7 +113,7 @@ const defaultCourses = [
     ],
   },
   {
-    id: "m3",
+    id: "c701a07b-5638-4e46-929a-9b82ac283ec6",
     categoryIds: ["c3"],
     title: "JavaScript",
     backgroundUrl:
@@ -147,7 +147,7 @@ const defaultCourses = [
     ],
   },
   {
-    id: "m4",
+    id: "7bca0429-a0a6-49b0-b7e9-6ecb5e6b2381",
     categoryIds: ["c4"],
     title: "React",
     backgroundUrl:
